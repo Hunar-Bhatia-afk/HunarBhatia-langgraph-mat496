@@ -17,8 +17,11 @@ But, we do have some practical challenges here→
 We’ve seen as you ramp up the level of control you give to the LLM, the reliability drops so going from something simpler like a router to going to something much more complicated like a fully autonomous agent, the application does degrade in terms of reliability.
 <img width="769" height="563" alt="image" src="https://github.com/user-attachments/assets/0edbfb3f-cf29-46f0-abb0-9dcee57c45d4" />
 So, this is where Langgraph comes into use → It helps use bend the curve by allowing us to build agents that maintain reliability, even as you push out the level of control you actually give to the LLM or Agent.
+
 <img width="768" height="574" alt="image" src="https://github.com/user-attachments/assets/35c8b285-670a-49dd-86e3-4c3cdeb9406b" />
+
 Let’s get started with → 
+
 <img width="404" height="105" alt="image" src="https://github.com/user-attachments/assets/00dd192b-016b-49b7-8436-74f8435b78de" />
 In many applications, we want to kind of combine developer intuitions with LLM control, and so you can very easily specify in your application certain steps that you always want to be fixed. We always start at step one and end at step two but we can also inject LLM at certain points turning it into an agent. These are expressed as graphs which contain nodes that represent the steps in our application and edges are just the connectivity between the nodes and there’s a lot of flexibilty for how you lay out nodes and edges. 
 <img width="862" height="207" alt="image" src="https://github.com/user-attachments/assets/3fc47130-131b-458b-a125-90850543f88b" />
