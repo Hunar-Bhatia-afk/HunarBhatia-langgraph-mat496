@@ -23,8 +23,11 @@ So, this is where Langgraph comes into use → It helps use bend the curve by al
 Let’s get started with → 
 
 <img width="404" height="105" alt="image" src="https://github.com/user-attachments/assets/00dd192b-016b-49b7-8436-74f8435b78de" />
+
 In many applications, we want to kind of combine developer intuitions with LLM control, and so you can very easily specify in your application certain steps that you always want to be fixed. We always start at step one and end at step two but we can also inject LLM at certain points turning it into an agent. These are expressed as graphs which contain nodes that represent the steps in our application and edges are just the connectivity between the nodes and there’s a lot of flexibilty for how you lay out nodes and edges. 
+
 <img width="862" height="207" alt="image" src="https://github.com/user-attachments/assets/3fc47130-131b-458b-a125-90850543f88b" />
+
 So, there’s certain pillars in Langgraph that help us achieve the goals that we are talking about here→
 
 - Persistence
@@ -33,5 +36,6 @@ So, there’s certain pillars in Langgraph that help us achieve the goals that w
 - Controllability
 
 These pillars are going to be the cornerstones of the modules in this course and we’ll be going through these a lot as we proceed in this code.
+
 <img width="719" height="112" alt="image" src="https://github.com/user-attachments/assets/e08fcc7b-6d4e-4499-85f5-830885299da8" />
 ____________________________________________________________________________________________________________________________________
