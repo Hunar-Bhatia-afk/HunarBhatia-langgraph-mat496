@@ -1,4 +1,4 @@
-# HunarBhatia-langgraph-mat496
+# HunarBhatia-GangGraph-mat496
 Here we'll be doing the Intro To LangGraph course module by module.
 Module 1-Langgraph by Hunar Bhatia
 ## ***Lesson 1: Motivation***
