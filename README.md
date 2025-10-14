@@ -39,3 +39,63 @@ These pillars are going to be the cornerstones of the modules in this course and
 
 <img width="719" height="112" alt="image" src="https://github.com/user-attachments/assets/e08fcc7b-6d4e-4499-85f5-830885299da8" />
 ____________________________________________________________________________________________________________________________________
+
+
+## *Lesson 2- Simple Graph*
+
+So let’s build a simple graph to introduce the core components of LangGraph.
+
+<img width="868" height="358" alt="image" src="https://github.com/user-attachments/assets/60766bb7-cdca-4cd7-ad49-74e20b53f723" />
+
+The edge between start → node1 is a normal edge. The next edge from node1 to node2 and node3 is called a conditional edge meaning that based on some condition we define, we either choose the branch leading to node2 or node3.
+Next, we install the langgraph module and then we define the state that is baiscally the object that we pass between the nodes and edges of our graph. Here, we define the state as a simple dictionary and it is going to have one key graph_state which is shown as follows-:
+
+<img width="872" height="206" alt="image" src="https://github.com/user-attachments/assets/78c31fcc-411b-4ba0-99a0-16a6ad8fbc89" />
+
+Now, next we need to define our nodes we are going to be taking 3 nodes here →
+
+<img width="865" height="404" alt="image" src="https://github.com/user-attachments/assets/45ef73ae-d6f6-4f65-897c-6a5be25c66da" />
+
+Remember that State is a dictionary so here we override the value of "graph_state" and append something new(of our own).
+
+We know for a fact that edges are how we connect nodes.
+
+<img width="871" height="558" alt="image" src="https://github.com/user-attachments/assets/8836513d-8e1a-4af5-bd8e-154720874cd6" />
+
+So here we were using a random function to decide which node to go to next from the conditional edge.
+
+Now, we are going to put all that together into a graph as follows-:
+We would be using the `StateGraph` class to do that and we’ll initialize it with `State` that we defined above and we’ll call it `builder` .Then, we add our nodes and name them accordingly. Finally, we define our logic for our starting from START and finishing up at END before we compile our graph and perform the basic checks and display it.
+
+<img width="865" height="676" alt="image" src="https://github.com/user-attachments/assets/a13c2bfb-a4b9-4d9c-a3ee-8940a7a48a03" />
+
+<img width="292" height="422" alt="image" src="https://github.com/user-attachments/assets/a5b72a9f-027a-4b4d-9d39-f2c8b8836f9d" />
+
+Now, the TWEAKING PART→ I tried doing this with 3 nodes in the conditional edge to see how it turns out. In order to do this I changed the conditional statement a bit. This is how it turned out to be→ 
+
+<img width="512" height="469" alt="image" src="https://github.com/user-attachments/assets/a216289e-d6eb-47a8-bc54-bacbbd224d2d" />
+
+Now, graphs implement a runnable protocol. This is just a standard way to execute various langchain components. So, this protocol is a few standard methods which is higly convenient and one of them is invoke().All we need to do is invoke our graph with an initial condition or an initial starting value for our state.So, recall our state is a dictionary and it has one key graph_state and we can just simply invoke it with a starting condition as follows →
+
+<img width="869" height="172" alt="image" src="https://github.com/user-attachments/assets/c8914c70-95d0-4b04-ba2e-1821ece122ce" />
+
+### *Tweakings in Video One*→
+
+1. Passed my own strings in node definitions as we overwrote the value of "graph_state" by appending as State is a dicitonary.
+2. I built a graph of my own by changing the condition a bit and providing three nodes to the conditional edge. This is how it turned out to be→
+
+<img width="542" height="482" alt="image" src="https://github.com/user-attachments/assets/a9584a75-b202-4665-bc98-532720b0860d" />
+
+3. I invoked the graph with my own starting condition as follows→
+
+<img width="866" height="147" alt="image" src="https://github.com/user-attachments/assets/1a02d2fa-09d7-4b3e-8539-0934c34e6ab5" />
+
+
+____________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
