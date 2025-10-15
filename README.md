@@ -1,4 +1,4 @@
-# HunarBhatia-LangGraph-mat496
+<img width="1485" height="862" alt="image" src="https://github.com/user-attachments/assets/5494f0f6-7217-4110-9db3-511267a02a43" /># HunarBhatia-LangGraph-mat496
 Here we'll be doing the Intro To LangGraph course module by module.
 Module 1-Langgraph by Hunar Bhatia
 ## ***Lesson 1: Motivation***
@@ -93,7 +93,26 @@ Now, graphs implement a runnable protocol. This is just a standard way to execut
 
 ____________________________________________________________________________________________________________________________________
 
+## ***Lesson 3:LangSmith Studio***
 
+Something went wrong with my OpenAI API key and it took me literal 2 hours to get here→
+
+<img width="868" height="469" alt="image" src="https://github.com/user-attachments/assets/a3d36aae-e656-4ee7-8981-d5e0bf5094c6" />
+
+This is the LangSmith studio interface.
+
+So, we’ll be using simple_graph for now. There’s an input field which allows us to input values to the state just like we did in the notebook in the first video except that it is an IDE this time so we can visually interact with it.
+The thread on the right side basically groups different invocations in my graph together.
+It is like basically the history of any run of the graph.
+On clicking submit, we see that we have a thread which shows us what happened in a brief way where we can see what each node does by expanding on the arrow.
+
+<img width="862" height="498" alt="image" src="https://github.com/user-attachments/assets/49c2c9b4-98ac-43b4-9e1f-f6d6ce252e63" />
+
+So, it is a really nice way to visualize what happens in your graphs and various runs of your graphs.
+
+So, this was a basic introduction to how we’re gonna be using studio.
+
+____________________________________________________________________________________________________________________________________
 
 
 
