@@ -118,6 +118,97 @@ I tried different inputs of my own to see how the appending worked step by step 
 
 ____________________________________________________________________________________________________________________________________
 
+## ***Lesson 4:Chain***
+
+So we previously built a normal graph with nodes, normal edges and conditional edges.
+
+Now, let’s build up to a simple chain that combines 4 key concepts-:
+
+- Using chat messages in our graph.
+- Using chat models.
+- Binding tools to our LLM.
+- Executing tool calls in our graph.
+
+Getting started, first is messages → So, chat models interact with messages. Here’s an example -: I can create a list of messages which in our given case was the conversation between an AI and a human. We can assign a name to each message as well as content and just print it out. We change this as follows →
+
+<img width="861" height="371" alt="image" src="https://github.com/user-attachments/assets/5898f8ad-b96f-48c3-bf49-c72450268f3f" />
+
+I changed the conversation in the part where we learned about messages into a funny conversation on apples and doctors and observed the output.
+
+Going further, I can take this list of messages and pass it directly to a chat model. First we make sure our OpenAI key is set, then we make some imports and then we specify the LLM model to work with which in this case was GPT 4o.
+
+<img width="727" height="260" alt="image" src="https://github.com/user-attachments/assets/e158aa63-bd21-4564-9c82-9219aa316828" />
+
+We then get the result and it is basically an AI message and the content which is a string from the LLM and then in the next cell we get the response metadata.
+
+Now, let’s introduce the idea of tools which is another way to use chat models. The idea is simple→ Sometimes, we want to connect our chat model with some external tool like an API that requires particular payload to run. For example-: We take a function and define it and bind it to the LLM and now we’ll have an LLM that would have access to awareness of that function.
+
+As shown in the diagram below, we can take natural language in and it can produce the payload necessary to actually run that tool or function out.
+
+<img width="865" height="241" alt="image" src="https://github.com/user-attachments/assets/e4358f28-5947-4216-ae78-7f55e110da61" />
+
+This is what we get from our own function that we defined in the notebook-:
+
+<img width="866" height="390" alt="image" src="https://github.com/user-attachments/assets/b783129f-9854-4b20-8c77-b6940567e035" />
+
+Here, we saw how to bind tools to chat models to produce tool calls outputs.
+
+Now, let’s start rolling these pieces all into Langgraph. The first idea is how we can use messages as a graph state.
+
+Now, we define this class messages_state and it is a typed_dict and it has one key messages which is just a list of messages. Do not forget that we overwrite the value of this key when we perform state updates by default and LangGraph but in our particular case we don’t wanna do that. Instead, we wanna append this list everytime. For example our chat model produces an output, we wanna append to a state so it preserves a full history of the conversation. This is what motivates the idea of reducer functions.
+
+So, when we define our state in LangGraph, we can have a single key messages, we can have  it but we can actually annotate it with what we call reducer function, which tells LangGraph to append to this messages list when it recieves a new message.
+Since having a list of messages in graph state is so common, LangGraph has a pre-built [`MessagesState`](https://langchain-ai.github.io/langgraph/concepts/low_level/#messagesstate)!
+
+`MessagesState` is defined:
+
+- With a pre-build single `messages` key.
+- This is a list of `AnyMessage` objects.
+- It uses the `add_messages` reducer.
+
+Tested the reducer with my custom messages based on a bollywood joke to see how the reducer function appends the response. I also tried adding two messages to the function which gave an error where I learned that the reducer function takes 0-2 arguments and 3 were given to it.
+
+<img width="863" height="286" alt="image" src="https://github.com/user-attachments/assets/7bcd2861-ae15-4ef6-b068-fc92e78622d1" />
+
+So, instead of doing this, I wrote two functions and then tried executing it which led me to the result that it showed output for only the most recently called function.
+
+<img width="866" height="272" alt="image" src="https://github.com/user-attachments/assets/01d36856-4a07-401c-b611-f38b090ed29c" />
+
+Finally, we roll this into a graph as follows→
+
+<img width="866" height="318" alt="image" src="https://github.com/user-attachments/assets/e1803370-e47e-4c3b-a140-46e02c07cef3" />
+
+Now, let’s try invoking out graph with 2 different inputs(of my own) →
+
+<img width="866" height="170" alt="image" src="https://github.com/user-attachments/assets/569351ac-22f7-4b2b-b766-faba956ca84e" />
+
+In the second invoke function, we try tool calling with our custom function and it worked as follows→
+
+<img width="864" height="254" alt="image" src="https://github.com/user-attachments/assets/c0abed9a-5496-4e58-b3cf-f04bc55cba6d" />
+
+### *Tweakings in Video four*→
+
+1. I changed the conversation in the part where we learned about messages into a funny conversation on apples and doctors and observed the output.
+2. While tool calling, we changed the function to multiply_squares function that take 3 inputs and multiplies the squares of each of the given inputs to get the final result. We also alter the next 2-3 blocks accordingly.
+3. Tested the reducer with my custom messages based on a bollywood joke to see how the reducer function appends the response. I also tried adding two messages to the function which gave an error where I learned that the reducer function takes 0-2 arguments and 3 were given to it.
+   
+<img width="865" height="283" alt="image" src="https://github.com/user-attachments/assets/0b8836e6-c108-4e79-8592-40d84b1984b1" />
+
+So, instead of doing this, I wrote two functions and then tried executing it which led me to the result that it showed output for only the most recently called function.
+
+<img width="865" height="272" alt="image" src="https://github.com/user-attachments/assets/dc740399-1351-4939-8fac-23162d820b20" />
+
+4. Played around with the content a bit while invoking the graph.In the second invoke function, we try tool calling with our custom function and it worked as follows→
+
+<img width="868" height="257" alt="image" src="https://github.com/user-attachments/assets/32b0a8a7-077e-4d24-a018-2805a3baa0b2" />
+
+____________________________________________________________________________________________________________________________________
+
+
+
+
+
+
 
 
 
