@@ -1,4 +1,4 @@
-<img width="1485" height="862" alt="image" src="https://github.com/user-attachments/assets/5494f0f6-7217-4110-9db3-511267a02a43" /># HunarBhatia-LangGraph-mat496
+# HunarBhatia-LangGraph-mat496
 Here we'll be doing the Intro To LangGraph course module by module.
 Module 1-Langgraph by Hunar Bhatia
 ## ***Lesson 1: Motivation***
