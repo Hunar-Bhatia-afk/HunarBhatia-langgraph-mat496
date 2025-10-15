@@ -204,6 +204,77 @@ So, instead of doing this, I wrote two functions and then tried executing it whi
 
 ____________________________________________________________________________________________________________________________________
 
+## ***Lesson 5:Router***
+
+We built a grpah that uses messages as state and a chat model with bound tools.
+
+To do either of the two things-:
+
+- Return a tool call.
+- Return a natural language response.
+
+If an input is relevant to the tool, it returns a tool call otherwise just responds directly.Now, you can think of this as a general router as the chat model is routing between a tool call or a direct response.
+
+This is what a typical router looks like where the LLM chooses one or two potential paths based on the input-:
+
+<img width="870" height="277" alt="image" src="https://github.com/user-attachments/assets/ac65da97-8697-4f37-b35d-0cef39262572" />
+
+So, let’s actually extend what we did using two new ideas-:
+
+1. We’ll add a node that’ll actually call our tool so if the model responds with a tool call we actually can execute that call in a separate node.
+2. We can add a conditional edge that let’s you look at the chat model output and make a decision.
+
+Starting with the notebook→
+
+We first call the API and make the imports required and then we set our custom function for tool calling.I altered the function that we were calling as a tool and changed it from multiply to weighted random number chooser for 3 inputs as follows→
+
+<img width="831" height="699" alt="image" src="https://github.com/user-attachments/assets/3b2b68f1-6ce2-4951-8204-c8c262e0b8e7" />
+
+We have the built-in ToolNode of LangGraph which is what we use to call our tool and all we need to do is just pass that function to our ToolNode.
+We also have the pre-built tools_condition and basically it is a conditional edge, so it’s gonna look at the output of our LLM, and if that output is a tool call, it’ll route to our ToolNode.
+
+<img width="860" height="767" alt="image" src="https://github.com/user-attachments/assets/67c17b69-f181-40b0-9957-e0aa3d1562ff" />
+
+And instead of having the tool call, if we provide it with a direct message inside the content we’ll see that it responds normally.
+
+<img width="867" height="511" alt="image" src="https://github.com/user-attachments/assets/60fe6fbc-2b1b-438b-9e6c-a9e73dcf9fd8" />
+
+So, basically, the below graph depicts the the control flow of the entire process where the LLM decides whether to make the tool call or end the process.
+
+<img width="229" height="446" alt="image" src="https://github.com/user-attachments/assets/1e98db1f-4f97-4000-a700-0e69f543cdbe" />
+
+Now, we’ll see how it works in the studio as follows →
+
+So, we’ll open our studio and go over to router and the interface should be looking something like this→
+
+<img width="860" height="450" alt="image" src="https://github.com/user-attachments/assets/638493e6-c8b9-45f8-84fc-76686bfbbca6" />
+
+So, we write a new message of our own to test how it works with a router via threads→
+
+Here we see that tool_calling_llm does not use the tools part from the threads as it was a direct response and the tool wasn’t needed.
+
+<img width="862" height="429" alt="image" src="https://github.com/user-attachments/assets/227c2af3-4e66-4faa-a069-253d9cf45533" />
+
+On the other hand, when we pass it a message having something to do with the tool, it uses the tools part in the thread shown as follows→
+
+<img width="856" height="412" alt="image" src="https://github.com/user-attachments/assets/6e9fb6a6-16fa-465c-bf25-a3b036ce0724" />
+
+### *Tweakings in Video five*→
+
+1. I altered the function that we were calling as a tool and changed it from multiply to weighted random number chooser for 3 inputs.
+2. I used the built-in ToolNode and tools_condition commands on my own custom made tool and it was working perfectly.
+
+<img width="868" height="763" alt="image" src="https://github.com/user-attachments/assets/3fcccb0d-61e8-44a8-8b74-fa0042fe5b2a" />
+
+3. In LangSmith studio, I added two custom messages one having the need for the tool based function and on being a direct question that has nothing to do with the tool to see how the router worked in a step by step elaborated way via threads. 
+
+____________________________________________________________________________________________________________________________________
+
+
+
+
+
+
 
 
 
