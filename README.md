@@ -112,6 +112,10 @@ So, it is a really nice way to visualize what happens in your graphs and various
 
 So, this was a basic introduction to how we’re gonna be using studio.
 
+### *Tweakings in Video Two*→
+
+I tried different inputs of my own to see how the appending worked step by step and what changes were made at what step throughout the entire process.
+
 ____________________________________________________________________________________________________________________________________
 
 
