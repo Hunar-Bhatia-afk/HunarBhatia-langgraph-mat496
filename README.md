@@ -270,8 +270,42 @@ On the other hand, when we pass it a message having something to do with the too
 
 ____________________________________________________________________________________________________________________________________
 
+## ***Lesson 6:Agent***
 
+We are already done with the basics of a router. We can make one simple modification to this router to turn it into one of the more famous generic agent architectures.
 
+So, from the router if we send the tools based information back to the LLM it would turn it into ReAct architecture which has 3 components →
+
+1. act→ let the model call specific functions.
+2. observe→ pass the tool output back to the model.
+3. reason→let the model reason about the tool output to decide what to do next.
+
+<img width="866" height="455" alt="image" src="https://github.com/user-attachments/assets/f0113a47-e6fb-49ea-8425-f2d718726b8b" />
+
+This general purpose architecture can be applied to many types of tools.
+
+So, basically the model can continue to call tool until it sees a solution fit for the purpose or determines that the problem is solved and then it can just return natural language response and then end. This does have cases where we can apply a max limit for recursion but this was the intuition behind the whole concept and let’s go further now.
+
+After the installations and imports, we create 3 tools (of our own) and bind them to the model.
+
+After this, we work with the system messages and go ahead and build our graph but we see that this time it looks a little bit different→
+
+<img width="328" height="348" alt="image" src="https://github.com/user-attachments/assets/ba610f94-5dd7-441d-a3df-174afbdc62a8" />
+
+We can clearly see that here our assistant is the chat model and whenever it goes to access tools, its output gets redirected back towards the assistant.
+
+I changed the content in the human message and tailored it according to my self-built tools.
+
+For the rest of the video, we examine the traces in LangSmith. This allowed us to go a little bit further under the hood and look at the various steps in the process.
+
+### *Tweakings in Video six*→
+
+1. I created 5 tools of my own and bound them to the model before the message part to check how well it works with custom inputs.
+2. I changed the content in the human message and tailored it according to my self-built tools.
+
+<img width="868" height="430" alt="image" src="https://github.com/user-attachments/assets/50d33c28-8f81-42bf-a392-8a23a443697d" />
+
+____________________________________________________________________________________________________________________________________
 
 
 
