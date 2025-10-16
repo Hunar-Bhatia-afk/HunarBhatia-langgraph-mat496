@@ -307,6 +307,34 @@ For the rest of the video, we examine the traces in LangSmith. This allowed us t
 
 ____________________________________________________________________________________________________________________________________
 
+## ***Lesson 7:Agent with Memory***
+
+Previously, we built an agent that can act, observe and reason. In this video, we get introduced to the idea of memory.
+
+***I am not making any new tools of my own in this video as this follows the format of the last video where we already did this and hence it would only be repetitive.***
+
+Yet again, we define tools and have a system message and get a graph that represents our agent.
+
+Here, we want our agent to have memory i.e. for it to be able to access the conversation history for even more complex computations and deeper conversations.
+
+To address the problem of the state being transient to a single graph execution to access the previous message, persistence comes in play as it introduces the idea of memory.
+
+So, all we need to do is just import MemorySaver and then compile our graph with checkpointer set to memory in this case, MemorySaver() →
+
+<img width="685" height="168" alt="image" src="https://github.com/user-attachments/assets/eaa0d456-f0fe-4fb7-aebd-53a218d93827" />
+
+What checkpointers actually do is that they save the state of the graph at each point as this checkpoint. So, the checkpoint contains things like the state but it also has other stuff like the next node to go to and some metadata and has a checkpoint_id.
+
+Now these checkpoints can be associated together in what we call a thread.
+
+So, when we specify a thread, specify an input and run → it works normally except for now when we run the follow-up question with the same thread_id, it answers it they way it should be answering by referencing.
+
+<img width="869" height="445" alt="image" src="https://github.com/user-attachments/assets/65191a04-1a84-42c8-baf3-d0ba52183558" />
+
+Tweakings in Video Seven→ There wasn't much to do to be honest instead of changing the tools to our custom tools which we already have been doing for the last few lessons. I did try a thread of my own in the LangGraph studio but nothing else.
+
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
 
 
 
