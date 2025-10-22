@@ -336,7 +336,36 @@ Tweakings in Video Seven→ There wasn't much to do to be honest instead of chan
 _____________________________________________________________________________________________________________________________________
 _____________________________________________________________________________________________________________________________________
 
+# Module-2
 
+## *Lesson-1 : State Schema*
+
+We built the foundation in module-1 and now we’ll go a little deeper in state and memory in the second module.
+
+Fist, let’s talk a little bit more about schema. It is just the structure and types of data that the graph will use.
+
+The schema is just a structure and the types of data a graph will use.
+
+So, we’ve largely been using typedDict which is quite convenient and often recommended.
+*Tweaking#1→*
+
+Changed the code a little to experiment on my own.I changed the number of nodes and conditions according to those nodes and also I changed the mood literal to car.
+
+Now, note that TypedDict is not the only way to establish schema for your graph. Python’s dataclasses provide another way to define structured data. Dataclasses offer a concise syntax for creating classes that are primarily used to store data.
+We only modify the graphs slightly like for TypedDict it was state[”name”] but here it is just state.name*.*
+
+*Tweaking#2→*
+
+Changed mood to car for DataClass example and it ran smoothly as before.
+
+One of the problems with Dataclasses and TypedDicts is that they provide type hints but they don’t enforce types at runtime.
+So, Pydantic is a very nice solution to this problem as it provides data validation and is quite popular. So, in the code, we define a validator on car that confirms that car is either pagani or Benz otherwise it throws an error.
+
+*Tweaking#3→*
+
+On changing the car to Lamborghini it showed an error which is a good sign as it was not a part of the car list.
+
+The Module 2 Lesson-1 teaches us that defining our **LangGraph state schema** carefully is crucial for reliability of agent behavior. TypedDict and DataClass approaches are fast and flexible only for prototypes, but **Pydantic** is preferred when you need runtime safety or strict format checking for production-level graphs.
 
 
 
