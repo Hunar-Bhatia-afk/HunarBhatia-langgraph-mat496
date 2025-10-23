@@ -397,7 +397,21 @@ Module 2 Lesson 2 of the LangChain Academy focuses on state reducers in the La
 
 ____________________________________________________________________________________________________________________________________________________
 
+   ## *Lesson-3 : Multiple Schemas*
 
+Typically all graph nodes operate on a single schema and a single schema operates on all graph’s input or output channels. But, there are cases where we want more control over this. Case 1 would be when the internal graph nodes may pass info that ain’t required in the graph’s input/output.
+
+So, first we’ll explore Private State.This is useful for intermediate working logic but not overall impactful for graph i/o.
+
+Next, we use the classes InputState and OutputState and whatever params we provide to these two, only those would be provided as the respective input or output. Later, in the graph we assign input as InputState and output as the OutputState and that is what filters them both.
+
+*Tweaking#1*
+
+I used my custom input and output for the InputState and OutputState and experimented with a few changes in the code to see how it works I also tried swapping the OutputState and InputState for input and output schema and observed that it did not work properly.
+
+this lesson teaches us how to define and control multiple input/output schemas in LangGraph, allowing our graph to expose only certain keys to users while still managing internal details during execution.
+
+_____________________________________________________________________________________________________________________________________________________
 
 
 
