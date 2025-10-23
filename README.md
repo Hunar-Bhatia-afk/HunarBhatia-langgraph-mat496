@@ -367,6 +367,37 @@ On changing the car to Lamborghini it showed an error which is a good sign as it
 
 The Module 2 Lesson-1 teaches us that defining our **LangGraph state schema** carefully is crucial for reliability of agent behavior. TypedDict and DataClass approaches are fast and flexible only for prototypes, but **Pydantic** is preferred when you need runtime safety or strict format checking for production-level graphs.
 
+__________________________________________________________________________________________________________________________________________
+
+## *Lesson-2 : State Reducers*
+
+Now, we are going to dive down on reducers which define how state updates are performed on specific keys or channels in your schema.
+
+For the first example, we use a TypedDict as our state schema.
+As discussed before, LangGraph does not know the preferred way to update the state.
+
+Next, on invoking the graph and using try, when we execute it we get an InvalidUpdateError. This happens because if we are incrementing that same shared state key in both places at the same time, it’s ambiguous as to which one I keep.
+
+This is where reducers come into play as they give us a general way to address this problem.So, all we need to do when we define our state schema is we need to supply the annotated type to our key and include a reducer function.So performing the same and changing the state code for foo into a list of integers and then executing the code gives us and appended list instead of having the old one modified.
+
+*Tweaking#1* 
+
+To verify the implementation, I created a **graph with three nodes**, where each node adds values 1, 3, and 2 to the shared state. Finally, I ran a series of **test cases** to confirm that the custom reducer correctly accumulated results from all nodes instead of replacing previous values.
+
+In some cases we are required to define custom reducers rather than using the inbuit reducers in python for edge cases such as null. 
+Next,we also learned about the message state reducers and add_reducer method. We got to know about adding messages, overwriting them using id and deleting them using the inbuilt RemoveMessage reducers.
+
+Using add_messages also enables message removal for which we simply use RemoveMessage from the langchain_core.
+
+*Tweaking#2*
+
+I tried providing my own custom messages instead of the ones they had and verified its working when it came to using the RemoveMessage method.
+
+Module 2 Lesson 2 of the LangChain Academy focuses on state reducers in the LangGraph. It explains how the reducers manage state updates across the nodes by specifying how multiple updates to the same key should be handled. By default, LangGraph overwrites values, but reducers allow customized merging logic—such as adding, concatenating, or appending data—making concurrent updates possible during branching. The lesson also introduces annotating state keys with reducer functions, handling errors from parallel state updates, and creating custom reducers for special use cases like handling null values. Finally, it demonstrates the built-in reducers such as add_messages and how they manage message histories efficiently.
+
+____________________________________________________________________________________________________________________________________________________
+
+
 
 
 
