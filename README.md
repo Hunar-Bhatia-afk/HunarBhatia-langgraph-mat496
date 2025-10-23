@@ -443,5 +443,29 @@ I played around a bit and tried out different uses of strategy keyword such as f
 
 ______________________________________________________________________________________________________________________________________________________
 
+## *Lesson-5: Chatbot with Summarizing Messages and Memory*
 
+We’ve already covered how to customise graph, state schema and reducers.
+Now, we’ll take this one step closer and see a trick that actually uses LLMs to produce a running summary of conversation.
+It’s another means of compression that tries to preserve information better than just filtering or trimming old messages.
+
+We focus on enhancing chatbot capabilities by implementing long-term memory through conversation summarization, addressing the challenges of managing extended dialogues efficiently.
+
+The lesson introduces a method where the chatbot generates a running summary of the conversation once it exceeds a predefined number of messages—six in the example provided—thereby compressing the dialogue history and reducing token usage.
+
+*Tweaking1→*
+
+I changed the messages in the notebook to that of my own to see how the results turn out to be.
+
+This summarization process is automated within the chatbot's workflow, where after surpassing the message threshold, a dedicated node produces a summary that encapsulates key details such as user introductions and expressed interests, which is then stored in the chatbot's state. 
+
+This approach not only preserves essential information but also allows the chatbot to maintain context over prolonged interactions without overwhelming the system with extensive message histories.
+
+*Tweaking2→*
+
+Adjusted the message count threshold for summarization (e.g., changed from 6 to another number) to see how it impacts conversation length and token usage.Modified the summary prompt text or formatting to improve the quality or focus of the running summary.
+
+It amazingly presented a summary to us at the end.
+
+____________________________________________________________________________________________________________________________________________
 
