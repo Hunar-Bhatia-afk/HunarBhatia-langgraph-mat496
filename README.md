@@ -415,8 +415,33 @@ ________________________________________________________________________________
 
 
 
+## *Lesson-4 : Trim and Filter Messages*
 
+We quickly set up our environment variables and pass a few custom messages→ 
 
+*Tweaking#1*
+
+I passed a few custom messages in the conversation and provided it to the LLM and made sure that everything was working correctly.
+
+A practical issue working with messages is managing long running conversations that can be token intensive.
+
+So, we’ll be learning a trick that involves usage of RemoveMessage that we explored earlier. Basically, what we’ll do is we will remove all the messages except the mentioned last few.
+
+*Tweaking#2*
+
+I tried various different numbers to check if the last few messages corresponding to those number were showing up on my custom inputs.I also added a few messages so that this process would go smoother.
+
+Next, we go ahead and learn Filterng messages. If you don’t need or want to modify the graph state,you can just filter the messages you pass to the chat model. For example, just pass in a filtered list-:`llm.invoke(messages[-1:])` to the model.
+
+On invoking the graph using message filtering, we see that the state has all of the messages but when we go ahead and look at the langsmith trace we observe that only the last message has been used.
+
+So another alternative approach would be trimming as we can trim messages based on the number of specified tokens and this is relevant because LLMs have a context window with a specified token length, and we may want to specify the input accordingly.There are multiple different types of approaches here for example we can use the strategy=LAST to specify the final message in the list and you can make allow_partial=true to cut messages in the middle.
+
+*Tweaking#3*
+
+I played around a bit and tried out different uses of strategy keyword such as first, accumulate, skip and replace.Also, I used allow_partial as true in some cases to see how it ended up.
+
+______________________________________________________________________________________________________________________________________________________
 
 
 
