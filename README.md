@@ -469,3 +469,22 @@ It amazingly presented a summary to us at the end.
 
 ____________________________________________________________________________________________________________________________________________
 
+## *Lesson-6: Chatbot with Summarizing messages and External Memory*
+
+In Lesson 6 of Module 2, you learn how to take all the powerful LangGraph agents and chatbots you’ve built so far and deploy them so real users can interact with them. 
+
+This involves packaging your graph, running a server, and handling user interactions in a robust production environment. You get to explore features like streaming responses live, human-in-the-loop control, and managing complex scenarios such as multiple user requests racing in. 
+
+*Tweakings→*
+
+I updated the chatbot by changing the character’s name from Lance to Hunar and shifted the focus entirely to badminton. The chatbot now engages in conversations about badminton, remembering details and interactions related to the sport. During testing, Hunar introduced himself and mentioned his friend Aryan is a passionate follower of Indian badminton. Hunar asked the chatbot about top badminton players, and it successfully recalled information about prominent athletes like P.V. Sindhu, Kidambi Srikanth, and their key achievements. Across different messages, the chatbot remembered and responded accurately with rich details about the players and badminton history, showcasing that the memory feature works effectively with the new badminton-themed content.
+
+The lesson introduces the key backend pieces like Redis and Postgres that make this possible and shows how to build customizable assistants tailored for different tasks—all running smoothly and persistently as deployed services. 
+
+It’s an essential step to take your LangGraph projects from notebooks into the real world.
+
+*Tweakings→*
+
+I developed a customer service chatbot by integrating its memory with an external SQLite database for persistent state management. I specifically tested whether this setup allowed the chatbot to save and retrieve conversation history from the SQLite database continuously over extended periods. To validate the functionality, I utilized LangGraph Studio to observe the automatic persistence layers built into the system. I conducted experiments by ending and restarting chat sessions to confirm that past interactions were correctly restored from the database. Additionally, I documented this process by capturing and embedding screenshots within my project notebook.
+
+__________________________________________________________________________________________________________________________________________________________
