@@ -559,9 +559,7 @@ ________________________________________________________________________________
 
 ## *Lesson 5-:*
 
-ChatGPT said:
-
-In this video, I explored the concept of Time Travel in LangGraph, which enables us to revert to a previous state of the graph, re-run specific nodes, or modify inputs before resuming execution. It’s essentially like reverse debugging — instead of just pausing at a breakpoint, we can rewind and replay parts of the workflow. This feature is particularly valuable for debugging, testing variations, and refining outputs, as it allows us to:
+In this video, I explored the concept of Time Travel in LangGraph, which enables us to revert to a previous state of the graph, re-run specific nodes, or modify inputs before resuming execution. It is essentially like reversal of debugging — instead of just pausing at a breakpoint, we can rewind and replay parts of the workflow. This feature is particularly valuable for debugging, testing variations, and refining outputs, as it allows us to:
 
 Re-run the same input to potentially achieve a more accurate or improved result.
 
