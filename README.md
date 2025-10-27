@@ -504,5 +504,13 @@ We also explored **`.astream_events`**, which allows us to stream **events** hap
 
 Overall, this lesson clarified how LangGraph provides fine control over streaming — whether we want full state updates, incremental changes, or token-level events — making it powerful for building interactive and responsive applications.
 
+Changes I made-:
+I altered the prompts to test custom output for both the types of streaming modes and observed that it was working fine. With this, I got to learn and experiment more with the streaming modes.
+
+<img width="1426" height="388" alt="image" src="https://github.com/user-attachments/assets/25891f12-f151-45ba-b3bf-d96acfb70dc1" />
+
+
+
+
 ______________________________________________________________________________________________________________________________________________________________
 
