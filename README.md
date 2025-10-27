@@ -488,3 +488,21 @@ It’s an essential step to take your LangGraph projects from notebooks into the
 I developed a customer service chatbot by integrating its memory with an external SQLite database for persistent state management. I specifically tested whether this setup allowed the chatbot to save and retrieve conversation history from the SQLite database continuously over extended periods. To validate the functionality, I utilized LangGraph Studio to observe the automatic persistence layers built into the system. I conducted experiments by ending and restarting chat sessions to confirm that past interactions were correctly restored from the database. Additionally, I documented this process by capturing and embedding screenshots within my project notebook.
 
 __________________________________________________________________________________________________________________________________________________________
+
+# *Module 3*
+
+## *Lesson 1-:*
+
+In this lesson, I learned about the different ways LangGraph handles **streaming results** during graph execution. There are two main methods — `.stream` for synchronous streaming and `.astream` for asynchronous streaming.
+
+LangGraph also supports different **streaming modes** that determine what kind of data we receive while the graph runs:
+
+- **`values`** → Streams the **entire graph state** after each node finishes running.
+- **`updates`** → Streams only the **changes** (or updates) to the graph state after each node runs.
+
+We also explored **`.astream_events`**, which allows us to stream **events** happening inside nodes in real time. Each event includes details like the event type, name, data, and metadata (such as which node emitted it). This is especially useful for **chat models**, where we can stream tokens as they’re generated instead of waiting for the whole output.
+
+Overall, this lesson clarified how LangGraph provides fine control over streaming — whether we want full state updates, incremental changes, or token-level events — making it powerful for building interactive and responsive applications.
+
+______________________________________________________________________________________________________________________________________________________________
+
