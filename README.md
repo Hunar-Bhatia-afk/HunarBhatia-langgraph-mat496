@@ -527,4 +527,4 @@ It focuses on three main reasons for doing this:
 
 LangGraph makes this possible by giving access to the agent’s state at any time. The lesson uses a tool approval example — where the agent’s tool use is monitored — showing how you can use `interrupt_before` to pause the workflow before certain tools run. When executed, these interruptions show up as flagged steps in the graph, indicating points where human input is required before continuing.
 
-Changes I made-: I changed the tools and added some of my own to see how it worked with custom examples and how we could provide permission to the LLM in order to call a tool.
+Changes I made-: I changed the tools and added some of my own to see how it worked with custom examples and how we could provide permission to the LLM in order to call a tool.TJhis helped me explore breakpoints in a better way.
