@@ -528,3 +528,23 @@ It focuses on three main reasons for doing this:
 LangGraph makes this possible by giving access to the agent’s state at any time. The lesson uses a tool approval example — where the agent’s tool use is monitored — showing how you can use `interrupt_before` to pause the workflow before certain tools run. When executed, these interruptions show up as flagged steps in the graph, indicating points where human input is required before continuing.
 
 Changes I made-: I changed the tools and added some of my own to see how it worked with custom examples and how we could provide permission to the LLM in order to call a tool.TJhis helped me explore breakpoints in a better way.
+
+_________________________________________________________________________________________________________________________________________________________________
+
+## *Lesson 3-:*
+
+In this video, we learned how to edit the graph state after interrupting its flow. While breakpoints are primarily used for human approval, they also allow us to modify the state of the graph. This is achieved through the default message reducer, "add_message", which updates the graph’s state.
+We also explored how to add and work with interrupts in LangGraph Studio, as well as how to edit the graph state using the LangGraph API.
+Additionally, I learned how to explicitly modify the graph state based on user input by introducing a dummy node. This node accepts user feedback and injects it into the graph at a specific point, simulating the execution of that node. We can achieve this by using the "as_node" field in the update_state function call.
+
+<img width="849" height="360" alt="image" src="https://github.com/user-attachments/assets/8647341c-a483-44bc-807d-1f2bb1af2983" />
+
+
+Changes I made-:I added additional tools such as square, greet, and random number. I then interrupted and modified the graph’s state using both hardcoded values and user input, and continued the graph’s execution from that point. I also updated the graph state using the LangGraph API, as demonstrated in the tutorial.I also wrote custom inputs into LangGraph studio to see how interrupt works.
+
+_________________________________________________________________________________________________________________________________________________________________
+
+## *Lesson 4-:*
+
+
+
