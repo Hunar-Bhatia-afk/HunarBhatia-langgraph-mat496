@@ -542,9 +542,19 @@ Additionally, I learned how to explicitly modify the graph state based on user i
 
 Changes I made-:I added additional tools such as square, greet, and random number. I then interrupted and modified the graph’s state using both hardcoded values and user input, and continued the graph’s execution from that point. I also updated the graph state using the LangGraph API, as demonstrated in the tutorial.I also wrote custom inputs into LangGraph studio to see how interrupt works.
 
+
 _________________________________________________________________________________________________________________________________________________________________
 
 ## *Lesson 4-:*
+
+We know that we can manually add breakpoints in a graph to interrupt its execution, but what if we wanted the graph to pause on its own? That’s exactly what I learned in this video. This concept is known as an internal or dynamic breakpoint — a self-triggered interruption based on certain conditions within the graph, such as a specific state or flag.
+
+We can implement this behavior using nodeInterrupt, which allows the graph to stop automatically when a defined condition is met. To resume execution, we must update the graph’s state so that the same condition no longer triggers the interrupt; otherwise, the breakpoint will keep pausing the graph repeatedly.
+
+In this example, instead of using the default length-based condition from the tutorial, I implemented a custom dynamic breakpoint. The graph is designed to automatically pause whenever the input message contains the keyword "pause". After the interruption, I manually updated the graph’s state by modifying the message to "Continue the process" and then resumed execution using the update_state() and graph.stream() methods. Used my custom messages for better exploration.
+
+__________________________________________________________________________________________________________________________________________________________________
+
 
 
 
