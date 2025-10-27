@@ -551,11 +551,27 @@ We know that we can manually add breakpoints in a graph to interrupt its executi
 
 We can implement this behavior using nodeInterrupt, which allows the graph to stop automatically when a defined condition is met. To resume execution, we must update the graph’s state so that the same condition no longer triggers the interrupt; otherwise, the breakpoint will keep pausing the graph repeatedly.
 
+
+Changes I made:
 In this example, instead of using the default length-based condition from the tutorial, I implemented a custom dynamic breakpoint. The graph is designed to automatically pause whenever the input message contains the keyword "pause". After the interruption, I manually updated the graph’s state by modifying the message to "Continue the process" and then resumed execution using the update_state() and graph.stream() methods. Used my custom messages for better exploration.
 
-__________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________________________
 
 ## *Lesson 5-:*
+
+ChatGPT said:
+
+In this video, I explored the concept of Time Travel in LangGraph, which enables us to revert to a previous state of the graph, re-run specific nodes, or modify inputs before resuming execution. It’s essentially like reverse debugging — instead of just pausing at a breakpoint, we can rewind and replay parts of the workflow. This feature is particularly valuable for debugging, testing variations, and refining outputs, as it allows us to:
+
+Re-run the same input to potentially achieve a more accurate or improved result.
+
+Modify a specific portion of the state and continue execution from that point onward.
+
+Overall, Time Travel makes it much easier to experiment and iterate without having to restart the entire process from scratch.
+
+Changes I made:
+In this notebook, I explored time travel by re-running the graph from a previous checkpoint to see how state restoration works. I also added a new function that calculates the logarithm of a number (a) to a given base (b) to test how changing the state and re-running affected the final output. This helped me understand how time travel can help debug or experiment with different inputs easily. Made functions of my own and tried different inputs.
+__________________________________________________________________________________________________________________________________________________________________
 
 
 
