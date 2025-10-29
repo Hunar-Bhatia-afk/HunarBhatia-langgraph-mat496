@@ -571,5 +571,37 @@ Changes I made:
 In this notebook, I explored time travel by re-running the graph from a previous checkpoint to see how state restoration works. I also added a new function that calculates the logarithm of a number (a) to a given base (b) to test how changing the state and re-running affected the final output. This helped me understand how time travel can help debug or experiment with different inputs easily. Made functions of my own and tried different inputs.
 __________________________________________________________________________________________________________________________________________________________________
 
+# *Module - 4*
 
+## *Lesson-1:Parallelization*
+
+In this module we will be building a research assistant that would help us build a research  assistant that would tie together all of the course modules.
+
+Next, we observe a linear graph that over-writes itself just to get the essence of it.
+
+Tweaking#1
+
+I custom wrote the inputs in the linear graph that was meant to show us how over-writing takes place.
+
+Tweaking#2
+
+I changed the number of nodes in the step where multiple nodes are writing to the same key in the same step and this is how the graph came out to be-:
+
+<img width="313" height="592" alt="image" src="https://github.com/user-attachments/assets/89dcf5b6-1ac9-46e4-95aa-52d2f6cad35c" />
+
+We see that an error occurs with the try catch block so we’re suggested to use an annotated key for the same purpose.
+
+We also get to know that in cases like this when we are handling node updates parallely, we need to make use of some sort of reducer that can handle this.
+
+We then got to experience a case where if one parallel has more steps than the other then the next step would only execute once both the parallel branches have finished updating.
+
+Tweaking#3
+
+Added my custom nodes to see how one parallel having more steps than the other worked.
+
+<img width="204" height="810" alt="image" src="https://github.com/user-attachments/assets/3bb4e9bc-fd41-459c-ba98-cd197550ab43" />
+
+Next, going  ahead we sort the order of the state updates.
+
+Finally, in the working with LLMs part, we got to see a realistic example of web search with parallelization.
 
