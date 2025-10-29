@@ -605,3 +605,30 @@ Next, going  ahead we sort the order of the state updates.
 
 Finally, in the working with LLMs part, we got to see a realistic example of web search with parallelization.
 
+_________________________________________________________________________________________________________________________________
+
+## Lesson-2:Sub-graphs
+
+Now, we’ll cover sub-graphs which is an important controllability topic.
+
+Sub-graphs allow us to cover different states in different parts of our graphs.
+
+Now, what we wanna know is how does the sub-graph communicate with the parent graph and vice versa?
+
+In order to make this possible we have to make sure the key is overlapping in both the graphs.
+
+We also make use of Langsmith for tracing here.
+
+After checking out an example, we observe that even though cleaned_logs isn’t changed, it is still returned by both the parallel sub-graphs, so that the LangGraph needs a way to merge them.
+
+We can skip the reducer by making sure each sub-graph outputs different keys instead of the same one.
+
+*Tweaking-:*
+
+We changed the dummy logs to our custom made examples to try out different combinations and get to know how sub-graphs work in a better way but also made sure that the field names and types matched our log data.
+
+
+Finally, we looked at the LangSmith trace and for a complex system, this becomes easy as we can easily open the different parts up and drill into them and close them down as per our will when we wish to explore the other parts.
+
+___________________________________________________________________________________________________________________________________
+
