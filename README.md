@@ -632,3 +632,12 @@ Finally, we looked at the LangSmith trace and for a complex system, this becomes
 
 ___________________________________________________________________________________________________________________________________
 
+## Lesson-2:Map-Reducer
+
+In this video, I learned about MapReduce, which is basically a method for efficiently breaking down tasks and running them in parallel. It has two main stages: the map phase, where a big task is divided into smaller subtasks that can be processed simultaneously, and the reduce phase, where all those results are gathered and combined into a final output.
+
+*Tweaking-:*
+
+I changed the original joke generator into a food discovery program. Instead of creating jokes about animals, it now finds traditional dishes from different countries. The program takes a country like Italy and breaks it into regional cuisines like Tuscan and Sicilian, then finds the popular dishes for each region. Finally, it picks the most delicious-sounding dish. When I tested it with Italy, it recommended dishes like pizza from Naples, risotto from Milan, and gelato from Sicily, and selected pizza as the best traditional dish.
+
+___________________________________________________________________________________________________________________________________
