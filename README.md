@@ -641,3 +641,13 @@ In this video, I learned about MapReduce, which is basically a method for effici
 I changed the original joke generator into a food discovery program. Instead of creating jokes about animals, it now finds traditional dishes from different countries. The program takes a country like Italy and breaks it into regional cuisines like Tuscan and Sicilian, then finds the popular dishes for each region. Finally, it picks the most delicious-sounding dish. When I tested it with Italy, it recommended dishes like pizza from Naples, risotto from Milan, and gelato from Sicily, and selected pizza as the best traditional dish.
 
 ___________________________________________________________________________________________________________________________________
+
+## Lesson-4 :Research Assistant
+I learned how to build a multi-agent research system combining human-in-the-loop feedback, sub-graphs for separate concerns, and parallel execution using Send() API. The system generated analysts based on a topic, allowed human refinement, conducted parallel interviews using web search, and synthesized findings into a report. I also learned how to manage multiple state objects using checkpointers for memory, and how to implement map-reduce patterns for scalability. Towards the end, we also looked into the execution of this agent in langsmith studio.
+
+*Tweaking-:*
+Changed the topic from about langgraph frameworks to about how Game of thrones is arguably the best show.
+Changed the human feedback to add a perspective of someone from the cast of game of thrones which in our case is Emilia Clarke.
+Changed the human feedback to add a perspective of another person from the same cast which ended up being Jon Snow.
+
+____________________________________________________________________________________________________________________________________
