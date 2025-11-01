@@ -632,7 +632,7 @@ Finally, we looked at the LangSmith trace and for a complex system, this becomes
 
 ___________________________________________________________________________________________________________________________________
 
-## Lesson-2:Map-Reducer
+## Lesson-3 :Map-Reducer
 
 In this video, I learned about MapReduce, which is basically a method for efficiently breaking down tasks and running them in parallel. It has two main stages: the map phase, where a big task is divided into smaller subtasks that can be processed simultaneously, and the reduce phase, where all those results are gathered and combined into a final output.
 
